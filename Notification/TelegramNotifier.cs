@@ -11,9 +11,6 @@ namespace VaccineFinder.Notification
         const string urlstring = "https://api.telegram.org/bot{0}/sendMessage?chat_id={1}&text={2}";
         const string msgFormatter = "{3}, {0} {1} {2}, {4}, Avail - {5}";
 
-        //Test Message
-        //https://api.telegram.org/bot1695612041:AAFscyqTbWjSZZcAkFA_GJvXZPUbdLRPHxs/sendMessage?chat_id=-1001272859899&text=Test
-
         public void Notify(Center c)
         {
             if (c == null)
