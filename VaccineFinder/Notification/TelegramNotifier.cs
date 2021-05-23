@@ -20,7 +20,7 @@ namespace VaccineFinder.Notification
                 return;
 
            string retval = string.Empty;
-           string url = string.Format(urlstring, botToken, chatid,CreateMessage(c,availabilityCount));
+           string url = string.Format(urlstring, botToken, chatid,CreateMessage(c,ava));
             try
             {
                 using (var webClient = new WebClient())
