@@ -9,4 +9,4 @@
 
 ## Notifications
 
-- Real Time & sent to [Telegram group](https://t.me/BangaloreVaccineFinder)
+- `Real Time` & sent to [Telegram group](https://t.me/BangaloreVaccineFinder)
