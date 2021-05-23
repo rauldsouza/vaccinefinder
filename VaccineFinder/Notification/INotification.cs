@@ -10,7 +10,7 @@ namespace VaccineFinder.Notification
     interface INotification
     {
         //public INotificationProvider;
-         void Notify(Center c);
+         void Notify(Center c, int availabilityCount);
 
     }
 }

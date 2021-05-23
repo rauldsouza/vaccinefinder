@@ -65,9 +65,9 @@ namespace VaccineFinder
                         {
                             List<Session> found = c.sessions.FindAll(s => s.min_age_limit == 18 && s.available_capacity > 0);
                             if (found != null && found.Count > 0)
-                                if (found[0].available_capacity_dose1 > 1)
+                                if (found[0].available_capacity_dose1 > 3)
                                 {
-                                    telegramNotifier.Notify(c);
+                                    telegramNotifier.Notify(c, found[0].available_capacity_dose1);
                                     /*
                                     Console.Beep();
                                     Console.Beep();*/
