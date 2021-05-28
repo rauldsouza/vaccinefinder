@@ -59,29 +59,33 @@ namespace VaccineFinder
 
                         //TODO - Try filtering with LINQ as opposed to deserialization.
                         rootObj = JsonConvert.DeserializeObject<Root>(response);
+                        if (rootObj.centers == null)
+                            return;
                         Console.Out.WriteLine("No. of Centers for district id {0} is {1}", district.ToString(), rootObj.centers.Count.ToString());
 
                         foreach (Center c in rootObj.centers)
                         {
                             List<Session> found = c.sessions.FindAll(s => s.min_age_limit == 18 && s.available_capacity > 0);
                             if (found != null && found.Count > 0)
-                                if (found[0].available_capacity_dose1 > 3)
+                                for (int i = 0; i < found.Count; i++)
                                 {
-                                    telegramNotifier.Notify(c, found[0].available_capacity_dose1);
-                                    /*
-                                    Console.Beep();
-                                    Console.Beep();*/
-                                    Console.WriteLine("Center - {0} with availability - {1}", c.name, found[0].available_capacity_dose1);
+                                    if (found[i].available_capacity_dose1 > 5)
+                                    {
+
+                                        Console.Beep();
+                                        telegramNotifier.Notify(c, found[i].available_capacity_dose1);
+                                        Console.Beep();
+                                        Console.WriteLine("Center - {0} with availability - {1}", c.name, found[i].available_capacity_dose1);
+                                    }
                                 }
                         }
                     }
                 }
                 catch (Exception e)
                 {
-
-                    Console.Beep();
                     Console.Out.WriteLine("-----------------");
                     Console.Out.WriteLine(e.Message);
+                    Console.Out.WriteLine(e.StackTrace);
                 }
             }
         }
