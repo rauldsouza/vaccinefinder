@@ -57,6 +57,9 @@ namespace VaccineFinder
                     {
                         string response = responseReader.ReadToEnd();
 
+                        if (string.IsNullOrEmpty(response))
+                            continue;
+
                         //TODO - Try filtering with LINQ as opposed to deserialization.
                         rootObj = JsonConvert.DeserializeObject<Root>(response);
                         if (rootObj.centers == null)
