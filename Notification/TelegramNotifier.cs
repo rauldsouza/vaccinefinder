@@ -6,6 +6,7 @@ namespace VaccineFinder.Notification
 {
     class TelegramNotifier : INotification
     {
+        //TODO : Move to Prop file
         const string botToken = "1695612041:AAFscyqTbWjSZZcAkFA_GJvXZPUbdLRPHxs";
         const string chatid = "-1001272859899";
         const string urlstring = "https://api.telegram.org/bot{0}/sendMessage?chat_id={1}&text={2}";
